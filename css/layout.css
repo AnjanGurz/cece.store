@@ -325,7 +325,7 @@
 
 @keyframes shimmerPulse {
   0% { filter: brightness(1); }
-  50% { filter: brightness(1.25) drop-shadow(0 0 20px rgba(255,255,255,0.4)); }
+  50% { filter: brightness(1.08) drop-shadow(0 0 10px rgba(255,255,255,0.22)); }
   100% { filter: brightness(1); }
 }
 
@@ -405,8 +405,8 @@
   letter-spacing: -0.02em;
   color: var(--white);
   text-shadow: 
-    0 0 40px rgba(255,255,255,0.4),
-    0 0 80px rgba(232,64,12,0.2);
+    0 0 24px rgba(255,255,255,0.28),
+    0 0 48px rgba(232,64,12,0.12);
   animation: titleFloat 7s cubic-bezier(0.34, 1.56, 0.64, 1) infinite, hueShift 18s ease-in-out infinite, titleGlow 4s ease-in-out infinite;
   position: relative;
   z-index: 2;
@@ -434,14 +434,14 @@
 @keyframes titleGlow {
   0%, 100% { 
     text-shadow: 
-      0 0 40px rgba(255,255,255,0.4),
-      0 0 80px rgba(232,64,12,0.2);
+      0 0 24px rgba(255,255,255,0.28),
+      0 0 48px rgba(232,64,12,0.12);
   }
   50% { 
     text-shadow: 
-      0 0 60px rgba(255,255,255,0.6),
-      0 0 120px rgba(232,64,12,0.35),
-      0 0 200px rgba(240,180,41,0.15);
+      0 0 34px rgba(255,255,255,0.4),
+      0 0 68px rgba(232,64,12,0.22),
+      0 0 120px rgba(240,180,41,0.08);
   }
 }
 
@@ -453,11 +453,11 @@
   width: 100%;
   color: var(--accent);
   clip-path: polygon(0 0, 100% 0, 100% 45%, 0 50%);
-  opacity: 0.6;
+  opacity: 0.42;
   animation: glitch 3s infinite cubic-bezier(0.25, 0.46, 0.45, 0.94);
   text-shadow: 
-    0 0 35px rgba(232,64,12,0.8),
-    0 0 70px rgba(232,64,12,0.5);
+    0 0 20px rgba(232,64,12,0.45),
+    0 0 40px rgba(232,64,12,0.25);
   z-index: -1;
 }
 
@@ -466,8 +466,8 @@
   color: rgba(240,180,41,0.8);
   animation-delay: 0.2s;
   text-shadow: 
-    0 0 35px rgba(240,180,41,0.7),
-    0 0 70px rgba(240,180,41,0.4);
+    0 0 20px rgba(240,180,41,0.42),
+    0 0 40px rgba(240,180,41,0.2);
 }
 
 @keyframes glitch {
@@ -516,22 +516,22 @@
 .hero-title span {
   color: var(--accent);
   text-shadow: 
-    0 0 40px rgba(232,64,12,0.8),
-    0 0 80px rgba(232,64,12,0.5);
-  animation: spanGlow 2.5s ease-in-out infinite;
+    0 0 24px rgba(232,64,12,0.45),
+    0 0 44px rgba(232,64,12,0.24);
+  animation: spanGlow 3.6s ease-in-out infinite;
 }
 
 @keyframes spanGlow {
   0%, 100% {
     text-shadow: 
-      0 0 40px rgba(232,64,12,0.8),
-      0 0 80px rgba(232,64,12,0.5);
+      0 0 24px rgba(232,64,12,0.45),
+      0 0 44px rgba(232,64,12,0.24);
   }
   50% {
     text-shadow: 
-      0 0 60px rgba(240,180,41,0.9),
-      0 0 120px rgba(240,180,41,0.6),
-      0 0 180px rgba(232,64,12,0.3);
+      0 0 34px rgba(240,180,41,0.55),
+      0 0 68px rgba(240,180,41,0.3),
+      0 0 96px rgba(232,64,12,0.14);
   }
 }
 
