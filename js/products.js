@@ -91,6 +91,7 @@ const CeceProducts = (() => {
 
     const grid  = document.getElementById('products-grid');
     const count = document.getElementById('product-count');
+    const swipeHint = document.getElementById('products-swipe-hint');
 
     if (!grid) return;
 
@@ -116,6 +117,10 @@ const CeceProducts = (() => {
     grid.innerHTML = filteredProducts.length
       ? filteredProducts.map((p, index) => buildCard(p, socials, index)).join('')
       : '<p class="products-empty">No pieces in this filter</p>';
+
+    if (swipeHint) {
+      swipeHint.hidden = filteredProducts.length <= 1;
+    }
 
     // Re-observe scroll reveal after render
     CeceAnimations.observeReveal();
