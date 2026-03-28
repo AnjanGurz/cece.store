@@ -30,10 +30,11 @@
     <div class="hero-particles" aria-hidden="true"></div>
     <div class="hero-line"></div>
     <p class="hero-eyebrow">Premium Nepali Clothing</p>
-    <h1 class="hero-title float">CE<span>CE</span></h1>
+    <h1 class="hero-title float">CE<span><small>CE</small></span></h1>
     <span class="hero-est-bg" aria-hidden="true">EST 2026</span>
-    <p class="hero-sub">Quality over everything. Original designs, made in Nepal — built to last, worn to define.</p>
-    <p class="hero-sub hero-sub-nepali">गुणस्तरको कपडा, नेपालमा बनेको, प्रेम र हृदयको साथ।</p>
+    <p class="hero-sub">Quality over everything, worn to define.</p>
+    <p class="hero-sub hero-sub-nepali">गुणस्तर कपडा, प्रेम र हृदयको साथ।</p>
+    <a href="#products" id="floating-collection-btn" class="hero-float-cta" aria-label="Go to collections">COLLECTIONS <span class="cta-arrows" aria-hidden="true"><i class="fa-solid fa-angles-down"></i></span></a>
     <div class="hero-scroll">Scroll to explore</div>
   </section>
 
@@ -65,34 +66,28 @@
       <div>
         <h2 class="section-title">The Collection</h2>
         <p class="collection-status"><span class="badge badge-primary">Limited Edition</span> Available Now</p>
+        <p class="collection-instaspired">
+          Inspired by our feed at
+          <a href="https://www.instagram.com/cece.craftofficial/" target="_blank" rel="noopener">@cece.craftofficial</a>
+        </p>
       </div>
       <span class="section-count" id="product-count">— 0 pieces</span>
+    </div>
+    <div class="collection-toolbar reveal" id="collection-toolbar" aria-label="Collection controls">
+      <p class="collection-helper">Browse by availability</p>
+      <div class="collection-filters" role="tablist" aria-label="Filter products">
+        <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter-chip" type="button" data-filter="in" aria-pressed="false">In Stock</button>
+        <button class="filter-chip" type="button" data-filter="limited" aria-pressed="false">Limited</button>
+        <button class="filter-chip" type="button" data-filter="out" aria-pressed="false">Sold Out</button>
+      </div>
     </div>
     <div class="products-grid" id="products-grid">
       <!-- Rendered by js/products.js -->
     </div>
     <div class="coming-soon-banner reveal">
-      <span class="soon-pill">up next</span>
-      <h3>More Collections Coming Soon</h3>
-      <p>Fresh drops are on the way. Follow us on Instagram and Facebook to catch every release.</p>
-    </div>
-  </section>
-
-  <!-- IMAGE GALLERY SECTION -->
-  <section class="image-gallery">
-    <div class="gallery-grid">
-      <div class="gallery-item reveal" style="animation-delay: 0s">
-        <img src="./Images/niceBlackTee.webp" alt="CeCe Black Tee" loading="lazy">
-        <div class="gallery-overlay">Craft</div>
-      </div>
-      <div class="gallery-item reveal" style="animation-delay: 0.1s">
-        <img src="./Images/Polo_black.jpeg" alt="CeCe Polo" loading="lazy">
-        <div class="gallery-overlay">Quality</div>
-      </div>
-      <div class="gallery-item reveal" style="animation-delay: 0.2s">
-        <img src="./Images/whiteTee.webp" alt="CeCe White Tee" loading="lazy">
-        <div class="gallery-overlay">Design</div>
-      </div>
+      <h3>Up Next</h3>
+      <p>New drop soon. Follow Instagram and Facebook for updates.</p>
     </div>
   </section>
 
@@ -101,21 +96,29 @@
     <div class="about-left reveal">
       <p class="about-label">Our Story</p>
       <h2 class="about-title glow">Quality Over Everything</h2>
-      <p class="about-text">CeCe is a premium Nepali clothing brand built on one principle — quality over everything. Every piece is designed with intention, crafted with care, and made to last. No shortcuts. No compromise.</p>
-      <p class="about-text">To order, visit us on Instagram or Facebook. DM us your size and we'll take care of the rest.</p>
+      <p class="about-text">CeCe is a premium Nepali clothing label built on one non-negotiable idea: quality first.</p>
+      <p class="about-text">Order through Instagram or Facebook. Send your size in DM and we will handle the rest.</p>
     </div>
     <div class="about-stats reveal">
-      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Made in Nepal</div></div>
-      <div class="stat"><div class="stat-num">OG</div><div class="stat-label">Original Designs</div></div>
-      <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Quality First</div></div>
-      <div class="stat"><div class="stat-num">24h</div><div class="stat-label">DM Response</div></div>
+      <div class="about-panel">
+        <h3 class="about-panel-title">What We Stand For</h3>
+        <ul class="about-list" aria-label="CeCe values">
+          <li>Premium fabric and finishing</li>
+          <li>Original streetwear direction</li>
+          <!-- <li>Made in Nepal with pride</li> -->
+          <li>Small drops, high standards</li>
+        </ul>
+      </div>
     </div>
   </section>
 
   <!-- OPENING NOTE -->
   <section class="opening-note reveal" aria-label="Store opening notice">
     <div class="opening-note-inner">
-      <p class="opening-text">Physical store opening soon Kathmandu</p>
+      <p class="opening-text">
+        <span class="opening-pin" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
+        <span>Physical store opening soon in Kathmandu</span>
+      </p>
     </div>
   </section>
 
@@ -127,7 +130,7 @@
         <a href="https://www.facebook.com/profile.php?id=61582251825771" class="social-link"><i class="fab fa-facebook"></i> Facebook</a>
         <a href="https://www.instagram.com/cece.craftofficial/" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
       </div>
-    <p class="footer-tagline">Quality over everything.</p>
+    <p class="footer-tagline">© 2026 CeCe. All rights reserved.</p>
   </footer>
 
   <!-- Admin files -->

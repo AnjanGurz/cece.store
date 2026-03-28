@@ -4,35 +4,12 @@
    Boots up all modules on DOMContentLoaded.
    ============================================ */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+
+  await CeceData.hydrateFromCatalog();
 
   // 1. Render products on public page
   CeceProducts.render();
-
-  // 1a. Card parallax / pointer motion for max flavor
-  function initCardParallax() {
-    const cards = document.querySelectorAll('.product-card');
-    if (!cards.length) return;
-
-    cards.forEach(card => {
-      card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const px = (x / rect.width - 0.5) * 14;
-        const py = (y / rect.height - 0.5) * 14;
-        card.style.transform = `translateY(-10px) scale(1.03) rotateX(${py}deg) rotateY(${px}deg)`;
-        card.style.boxShadow = `0 30px 100px rgba(0,0,0,0.55), 0 0 80px rgba(232,64,12,0.2)`;
-      });
-
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-        card.style.boxShadow = '';
-      });
-    });
-  }
-
-  initCardParallax();
 
   // 2. Set social links in footer
   const socials = CeceData.getSocials();
@@ -95,6 +72,26 @@ document.addEventListener('DOMContentLoaded', () => {
         heroRing.style.transform = `translate(calc(-50% + ${(xPercent - 50) * 0.08}px), calc(-50% + ${(yPercent - 50) * 0.08}px)) scale(0.7)`;
       }
     });
+  }
+
+  // 7. Floating hero CTA -> collection section
+  const floatingCollectionBtn = document.getElementById('floating-collection-btn');
+  const productsSection = document.getElementById('products');
+
+  if (floatingCollectionBtn && productsSection) {
+    floatingCollectionBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      productsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    const heroObserver = new IntersectionObserver((entries) => {
+      const [entry] = entries;
+      floatingCollectionBtn.classList.toggle('is-hidden', !entry.isIntersecting);
+    }, { threshold: 0.15 });
+
+    if (hero) {
+      heroObserver.observe(hero);
+    }
   }
 
   let clickCount = 0;

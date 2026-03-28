@@ -1,0 +1,37 @@
+{
+  "catalogVersion": "2026-03-28-v3",
+  "products": [
+    {
+      "id": 1,
+      "name": "CeCe Black Jacket",
+      "price": 2999,
+      "status": "in",
+      "sizes": ["L"],
+      "img": "./Images/black_jacket.jpeg"
+    },
+    {
+      "id": 2,
+      "name": "CeCe Signature Polo",
+      "price": 1800,
+      "status": "in",
+      "sizes": ["XL"],
+      "img": "./Images/Polo_black.jpeg"
+    },
+    {
+      "id": 3,
+      "name": "CeCe Roda",
+      "price": 1450,
+      "status": "in",
+      "sizes": ["L", "XL", "XXL"],
+      "img": "./Images/whiteTee.webp"
+    },
+    {
+      "id": 4,
+      "name": "CeCe Midnight Tee",
+      "price": "-",
+      "status": "in",
+      "sizes": ["M", "L", "XL"],
+      "img": "./Images/niceBlackTee.webp"
+    }
+  ]
+}

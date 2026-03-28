@@ -11,6 +11,7 @@ const CeceData = (() => {
     password: 'cece_admin_pass',
     products: 'cece_products',
     socials:  'cece_socials',
+    catalogVersion: 'cece_catalog_version',
   };
 
   // ── DEFAULTS ──
@@ -19,6 +20,9 @@ const CeceData = (() => {
   const DEFAULT_PRODUCTS = [
     { id: 1, name: 'CeCe Black Jacket', price: 2900, status: 'in', sizes: ['S','M','L','XL','XXL'], img: './Images/black_jacket.jpeg' },
   ];
+
+  const CATALOG_URL = './catalog/products.json';
+  let catalogHydrated = false;
 
 
   const DEFAULT_SOCIALS = {
@@ -47,11 +51,53 @@ const CeceData = (() => {
     }
   }
 
+  async function hydrateFromCatalog(force = false) {
+    if (catalogHydrated && !force) return true;
+
+    try {
+      const res = await fetch(CATALOG_URL, { cache: 'no-cache' });
+      if (!res.ok) throw new Error(`Catalog fetch failed: ${res.status}`);
+
+      const catalog = await res.json();
+      const incomingProducts = Array.isArray(catalog.products) ? catalog.products : null;
+      if (!incomingProducts) throw new Error('Catalog JSON missing products array');
+
+      const remoteVersion = String(catalog.catalogVersion || '').trim();
+      const localVersion = (localStorage.getItem(KEYS.catalogVersion) || '').trim();
+      const localProducts = load(KEYS.products, null);
+      const hasLocalProducts = Array.isArray(localProducts) && localProducts.length > 0;
+
+      const shouldSync = force || !hasLocalProducts || (!!remoteVersion && remoteVersion !== localVersion);
+      if (shouldSync) {
+        save(KEYS.products, incomingProducts);
+        if (catalog.socials && typeof catalog.socials === 'object') {
+          save(KEYS.socials, catalog.socials);
+        }
+      }
+
+      if (remoteVersion) {
+        localStorage.setItem(KEYS.catalogVersion, remoteVersion);
+      }
+
+      catalogHydrated = true;
+      return true;
+    } catch (error) {
+      console.warn('CeceData catalog hydrate skipped:', error.message);
+      catalogHydrated = true;
+      return false;
+    }
+  }
+
   // ── PUBLIC API ──
   return {
 
+    hydrateFromCatalog,
+
     // PRODUCTS
-    getProducts()       { return load(KEYS.products, DEFAULT_PRODUCTS); },
+    getProducts() {
+      const list = load(KEYS.products, DEFAULT_PRODUCTS);
+      return Array.isArray(list) ? list : DEFAULT_PRODUCTS;
+    },
     saveProducts(list)  { return save(KEYS.products, list); },
 
     getProductById(id) {

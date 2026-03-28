@@ -6,17 +6,17 @@
 
 /* ── PRODUCT CARD ── */
 .product-card {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.36);
   padding: 0;
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
   position: relative;
   cursor: pointer;
   animation: cardEntrance 0.6s ease-out;
   animation-fill-mode: both;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(5px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
 }
 
 @keyframes cardEntrance {
@@ -31,10 +31,9 @@
 }
 
 .product-card:hover {
-  background: rgba(0, 0, 0, 0.5);
-  border-color: rgba(232, 64, 12, 0.3);
-  box-shadow: 0 20px 60px rgba(232, 64, 12, 0.15);
-  transform: translateY(-8px);
+  border-color: rgba(232, 64, 12, 0.38);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.34);
+  transform: translateY(-4px);
 }
 
 .product-card .shine {
@@ -44,7 +43,7 @@
 /* ── PRODUCT IMAGE SECTION ── */
 .product-img-placeholder {
   width: 100%;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5;
   background: linear-gradient(135deg, rgba(15, 15, 15, 0.8) 0%, rgba(30, 30, 30, 0.8) 100%);
   display: flex;
   align-items: center;
@@ -58,18 +57,18 @@
 .product-img-placeholder img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
-  padding: 1.5rem;
+  padding: 0;
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
               filter 0.5s ease;
-  filter: brightness(1.1) contrast(1.15) saturate(1.15);
-  background: rgba(0, 0, 0, 0.2);
+  filter: brightness(1.08) contrast(1.12) saturate(1.06);
+  background: rgba(0, 0, 0, 0.08);
 }
 
 .product-card:hover .product-img-placeholder img {
-  transform: scale(1.05);
-  filter: brightness(1.2) contrast(1.25) saturate(1.3);
+  transform: scale(1.02);
+  filter: brightness(1.13) contrast(1.16) saturate(1.1);
 }
 
 .product-img-placeholder::before {
@@ -102,14 +101,14 @@
 
 /* ── PRODUCT INFO SECTION ── */
 .product-info {
-  padding: 1.5rem;
+  padding: 1.15rem;
 }
 
 /* ── PRODUCT NAME ── */
 .product-name {
   font-family: 'DM Sans', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 600;
   letter-spacing: 0.02em;
   line-height: 1.35;
   color: rgba(245, 240, 232, 0.95);
@@ -124,10 +123,10 @@
 /* ── PRODUCT PRICE ── */
 .product-price {
   font-family: 'Space Mono', monospace;
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: rgba(232, 64, 12, 0.9);
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   transition: color 0.3s ease;
   letter-spacing: 0.03em;
 }
@@ -139,13 +138,13 @@
 /* ── STATUS BADGE ── */
 .product-status {
   font-family: 'Space Mono', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  padding: 0.4rem 0.8rem;
+  padding: 0.36rem 0.62rem;
   display: inline-block;
   border-radius: 20px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   font-weight: 600;
   transition: all 0.3s ease;
   border: 1px solid currentColor;
@@ -180,17 +179,17 @@
 /* ── SIZE TAGS ── */
 .product-sizes {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.38rem;
   flex-wrap: wrap;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .size-tag {
   font-family: 'Space Mono', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
+  font-size: 0.58rem;
+  letter-spacing: 0.06em;
   border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 0.35rem 0.65rem;
+  padding: 0.28rem 0.5rem;
   color: rgba(245, 240, 232, 0.6);
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.02);
@@ -202,36 +201,37 @@
   border-color: rgba(232, 64, 12, 0.6);
   color: rgba(232, 64, 12, 0.9);
   background: rgba(232, 64, 12, 0.08);
-  transform: scale(1.08);
+  transform: none;
 }
 
 /* ── ORDER BUTTONS ── */
 .product-actions {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0.6rem;
+  gap: 0.5rem;
 }
 
 .btn-order {
   font-family: 'Space Mono', monospace;
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
+  font-size: 0.56rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 600;
-  padding: 0.9rem 0.5rem;
+  min-height: 40px;
+  padding: 0.58rem 0.5rem;
   border: 1px solid rgba(255, 255, 255, 0.15);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
   backdrop-filter: blur(8px);
   border-radius: 8px;
   color: rgba(245, 240, 232, 0.9);
   text-align: center;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 0.35rem;
+  gap: 0.32rem;
   position: relative;
   overflow: hidden;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -254,9 +254,9 @@
 }
 
 .btn-order:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.28);
 }
 
 .btn-order:active {
@@ -264,17 +264,17 @@
 }
 
 .btn-order i {
-  font-size: 1.3rem;
-  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  font-size: 0.82rem;
+  transition: transform 0.25s ease;
   display: block;
 }
 
 .btn-order:hover i {
-  transform: scale(1.25) rotate(8deg);
+  transform: scale(1.1);
 }
 
 .btn-order span {
-  font-size: 0.6rem;
+  font-size: 0.56rem;
   transition: all 0.3s ease;
 }
 
