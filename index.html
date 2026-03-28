@@ -26,19 +26,19 @@
 
   <!-- HERO -->
   <section id="hero" class="particles">
-    <canvas id="hero-canvas" aria-hidden="true"></canvas>
     <div class="hero-bg"></div>
     <div class="hero-particles" aria-hidden="true"></div>
     <div class="hero-line"></div>
-    <p class="hero-eyebrow">Premium Nepali Clothing — Est. 2026</p>
+    <p class="hero-eyebrow">Premium Nepali Clothing</p>
     <h1 class="hero-title float">CE<span>CE</span></h1>
+    <span class="hero-est-bg" aria-hidden="true">EST 2026</span>
     <p class="hero-sub">Quality over everything. Original designs, made in Nepal — built to last, worn to define.</p>
-    <p class="hero-sub hero-sub-nepali">पछिको फेसन, यहाँै देख्नुहोस् — स्थायी, मौलिक, र अति-विविध।</p>
+    <p class="hero-sub hero-sub-nepali">गुणस्तरको कपडा, नेपालमा बनेको, प्रेम र हृदयको साथ।</p>
     <div class="hero-scroll">Scroll to explore</div>
   </section>
 
   <!-- MARQUEE -->
-  <div class="marquee-wrap">
+  <!-- <div class="marquee-wrap">
     <div class="marquee-track" id="marquee">
       <span class="marquee-item">Premium Quality</span>
       <span class="marquee-item">★</span>
@@ -57,17 +57,42 @@
       <span class="marquee-item">CeCe Clothing</span>
       <span class="marquee-item">★</span>
     </div>
-  </div>
+  </div> -->
+
+  <!-- IMAGE GALLERY SECTION -->
+  <section class="image-gallery">
+    <div class="gallery-grid">
+      <div class="gallery-item reveal" style="animation-delay: 0s">
+        <img src="./Images/niceBlackTee.webp" alt="CeCe Black Tee" loading="lazy">
+        <div class="gallery-overlay">Craft</div>
+      </div>
+      <div class="gallery-item reveal" style="animation-delay: 0.1s">
+        <img src="./Images/Polo_black.jpeg" alt="CeCe Polo" loading="lazy">
+        <div class="gallery-overlay">Quality</div>
+      </div>
+      <div class="gallery-item reveal" style="animation-delay: 0.2s">
+        <img src="./Images/whiteTee.webp" alt="CeCe White Tee" loading="lazy">
+        <div class="gallery-overlay">Design</div>
+      </div>
+    </div>
+  </section>
 
   <!-- PRODUCTS -->
   <section id="products">
-    <canvas id="products-canvas" aria-hidden="true"></canvas>
     <div class="section-header reveal">
-      <h2 class="section-title">The Collection</h2>
+      <div>
+        <h2 class="section-title">The Collection</h2>
+        <p class="collection-status"><span class="badge badge-primary">Limited Edition</span> Available Now</p>
+      </div>
       <span class="section-count" id="product-count">— 0 pieces</span>
     </div>
     <div class="products-grid" id="products-grid">
       <!-- Rendered by js/products.js -->
+    </div>
+    <div class="coming-soon-banner reveal">
+      <span class="soon-pill">up next</span>
+      <h3>More Collections Coming Soon</h3>
+      <p>Fresh drops are on the way. Follow us on Instagram and Facebook to catch every release.</p>
     </div>
   </section>
 
@@ -84,6 +109,13 @@
       <div class="stat"><div class="stat-num">OG</div><div class="stat-label">Original Designs</div></div>
       <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Quality First</div></div>
       <div class="stat"><div class="stat-num">24h</div><div class="stat-label">DM Response</div></div>
+    </div>
+  </section>
+
+  <!-- OPENING NOTE -->
+  <section class="opening-note reveal" aria-label="Store opening notice">
+    <div class="opening-note-inner">
+      <p class="opening-text">Physical store opening soon Kathmandu</p>
     </div>
   </section>
 

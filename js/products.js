@@ -28,21 +28,22 @@ const CeceProducts = (() => {
 
     return `
       <div class="product-card reveal" style="animation-delay: ${index * 0.1}s">
-        <div class="shine"></div>
         ${imageHtml}
-        <span class="product-status ${status.cls}">${status.label}</span>
-        <h3 class="product-name">${product.name}</h3>
-        <p class="product-price">NPR ${Number(product.price).toLocaleString()}</p>
-        <div class="product-sizes">${sizesHtml}</div>
-        <div class="product-actions">
-          <a href="${socials.ig}" target="_blank" rel="noopener" class="btn-order ig ${disabled}">
-            <i class="fab fa-instagram"></i>
-            <span>Order via Instagram</span>
-          </a>
-          <a href="${socials.fb}" target="_blank" rel="noopener" class="btn-order fb ${disabled}">
-            <i class="fab fa-facebook"></i>
-            <span>Order via Facebook</span>
-          </a>
+        <div class="product-info">
+          <span class="product-status ${status.cls}">${status.label}</span>
+          <h3 class="product-name">${product.name}</h3>
+          <p class="product-price">NPR ${Number(product.price).toLocaleString()}</p>
+          <div class="product-sizes">${sizesHtml}</div>
+          <div class="product-actions">
+            <a href="${socials.ig}" target="_blank" rel="noopener" class="btn-order ig ${disabled}">
+              <i class="fab fa-instagram"></i>
+              <span>Order via Instagram</span>
+            </a>
+            <a href="${socials.fb}" target="_blank" rel="noopener" class="btn-order fb ${disabled}">
+              <i class="fab fa-facebook"></i>
+              <span>Order via Facebook</span>
+            </a>
+          </div>
         </div>
       </div>
     `;

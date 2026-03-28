@@ -17,10 +17,7 @@ const CeceData = (() => {
   const DEFAULT_PASSWORD = 'cece2024';
 
   const DEFAULT_PRODUCTS = [
-    { id: 1, name: 'CeCe Summer Jacket Vol.1', price: 3500, status: 'in',      sizes: ['S','M','L','XL'],       img: '' },
-    { id: 2, name: 'CeCe Oversized Tee',       price: 1200, status: 'limited', sizes: ['XS','S','M','L','XL'],  img: '' },
-    { id: 3, name: 'CeCe Cargo Shorts',        price: 1800, status: 'in',      sizes: ['S','M','L'],            img: '' },
-    { id: 4, name: 'CeCe Liner Jacket',        price: 4200, status: 'out',     sizes: ['M','L','XL'],           img: '' },
+    { id: 1, name: 'CeCe Black Jacket', price: 2900, status: 'in', sizes: ['S','M','L','XL','XXL'], img: './Images/black_jacket.jpeg' },
   ];
 
 
