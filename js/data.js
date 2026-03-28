@@ -23,10 +23,11 @@ const CeceData = (() => {
     { id: 4, name: 'CeCe Liner Jacket',        price: 4200, status: 'out',     sizes: ['M','L','XL'],           img: '' },
   ];
 
+
   const DEFAULT_SOCIALS = {
-    ig: 'https://instagram.com',
-    fb: 'https://facebook.com',
-  };
+  ig: 'https://www.instagram.com/cece.craftofficial/',
+  fb: 'https://www.facebook.com/profile.php?id=61582251825771',
+};
 
   // ── HELPERS ──
   function load(key, fallback) {
