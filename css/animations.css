@@ -1,0 +1,38 @@
+/* ============================================
+   ANIMATIONS.CSS
+   Keyframes and scroll reveal classes
+   ============================================ */
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 0.3; }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── HERO ENTRANCE ── */
+.hero-eyebrow { opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards; }
+.hero-title   { opacity: 0; animation: fadeUp 0.8s ease 0.4s forwards; }
+.hero-sub     { opacity: 0; animation: fadeUp 0.8s ease 0.6s forwards; }
+.hero-scroll  { opacity: 0; animation: fadeIn 1s ease 1s forwards; }
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

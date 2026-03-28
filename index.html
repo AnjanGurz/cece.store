@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CeCe — Premium Nepali Clothing</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <a href="#" class="nav-logo">CeCe</a>
+    <div class="nav-links">
+      <a href="#products">Shop</a>
+      <a href="#about">About</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-line"></div>
+    <p class="hero-eyebrow">Premium Nepali Clothing — Est. 2026</p>
+    <h1 class="hero-title">CE<span>CE</span></h1>
+    <p class="hero-sub">Quality over everything. Original designs, made in Nepal — built to last, worn to define.</p>
+    <div class="hero-scroll">Scroll to explore</div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track" id="marquee">
+      <span class="marquee-item">Premium Quality</span>
+      <span class="marquee-item">★</span>
+      <span class="marquee-item">Made in Nepal</span>
+      <span class="marquee-item">★</span>
+      <span class="marquee-item">Original Design</span>
+      <span class="marquee-item">★</span>
+      <span class="marquee-item">CeCe Clothing</span>
+      <span class="marquee-item">★</span>
+      <span class="marquee-item">Premium Quality</span>
+      <span class="marquee-item">★</span>
+      <span class="marquee-item">Made in Nepal</span>
+      <span class="marquee-item">★</span>
+      <span class="marquee-item">Original Design</span>
+      <span class="marquee-item">★</span>
+      <span class="marquee-item">CeCe Clothing</span>
+      <span class="marquee-item">★</span>
+    </div>
+  </div>
+
+  <!-- PRODUCTS -->
+  <section id="products">
+    <div class="section-header reveal">
+      <h2 class="section-title">The Collection</h2>
+      <span class="section-count" id="product-count">— 0 pieces</span>
+    </div>
+    <div class="products-grid" id="products-grid">
+      <!-- Rendered by js/products.js -->
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-left reveal">
+      <p class="about-label">Our Story</p>
+      <h2 class="about-title">Quality Over Everything</h2>
+      <p class="about-text">CeCe is a premium Nepali clothing brand built on one principle — quality over everything. Every piece is designed with intention, crafted with care, and made to last. No shortcuts. No compromise.</p>
+      <p class="about-text">To order, visit us on Instagram or Facebook. DM us your size and we'll take care of the rest.</p>
+    </div>
+    <div class="about-stats reveal">
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Made in Nepal</div></div>
+      <div class="stat"><div class="stat-num">OG</div><div class="stat-label">Original Designs</div></div>
+      <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Quality First</div></div>
+      <div class="stat"><div class="stat-num">24h</div><div class="stat-label">DM Response</div></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="main-footer">
+    <div class="footer-brand" id="admin-trigger">CeCe</div>
+    <div class="footer-links">
+      <a href="#" class="footer-link" id="footer-ig">Instagram</a>
+      <a href="#" class="footer-link" id="footer-fb">Facebook</a>
+    </div>
+    <p class="footer-tagline">Quality over everything.</p>
+  </footer>
+
+  <!-- Admin files -->
+  <div id="admin-mount"></div>
+
+  <!-- SCRIPTS — order matters -->
+  <script src="js/data.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="admin/admin.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>

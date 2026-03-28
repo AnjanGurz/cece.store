@@ -1,0 +1,128 @@
+/* ============================================
+   COMPONENTS.CSS
+   Product cards, buttons, size tags, badges
+   ============================================ */
+
+/* ── PRODUCT CARD ── */
+.product-card {
+  background: var(--black);
+  padding: 2rem;
+  transition: background 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card:hover { background: var(--muted); }
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.3s;
+  transform-origin: left;
+}
+
+.product-card:hover::before { transform: scaleX(1); }
+
+/* ── PRODUCT IMAGE ── */
+.product-img-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 3rem;
+  letter-spacing: 0.1em;
+  color: rgba(245,240,232,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-img-placeholder img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── STATUS BADGE ── */
+.product-status {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid currentColor;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
+.status-in      { color: #4ade80; }
+.status-limited { color: var(--accent2); }
+.status-out     { color: rgba(245,240,232,0.25); }
+
+/* ── PRODUCT INFO ── */
+.product-name {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+}
+
+.product-price {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+
+/* ── SIZE TAGS ── */
+.product-sizes {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.size-tag {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.5rem;
+  color: rgba(245,240,232,0.5);
+}
+
+/* ── ORDER BUTTONS ── */
+.product-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.btn-order {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.7rem 0.5rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--white);
+  text-align: center;
+  transition: all 0.2s;
+  cursor: pointer;
+  display: block;
+}
+
+.btn-order:hover        { background: var(--accent); border-color: var(--accent); }
+.btn-order.fb:hover     { background: #1877f2; border-color: #1877f2; }
+.btn-order.disabled     { opacity: 0.3; pointer-events: none; }
