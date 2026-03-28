@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/animations.css">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
@@ -24,12 +25,15 @@
   </nav>
 
   <!-- HERO -->
-  <section id="hero">
+  <section id="hero" class="particles">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
     <div class="hero-bg"></div>
+    <div class="hero-particles" aria-hidden="true"></div>
     <div class="hero-line"></div>
     <p class="hero-eyebrow">Premium Nepali Clothing — Est. 2026</p>
-    <h1 class="hero-title">CE<span>CE</span></h1>
+    <h1 class="hero-title float">CE<span>CE</span></h1>
     <p class="hero-sub">Quality over everything. Original designs, made in Nepal — built to last, worn to define.</p>
+    <p class="hero-sub hero-sub-nepali">पछिको फेसन, यहाँै देख्नुहोस् — स्थायी, मौलिक, र अति-विविध।</p>
     <div class="hero-scroll">Scroll to explore</div>
   </section>
 
@@ -57,6 +61,7 @@
 
   <!-- PRODUCTS -->
   <section id="products">
+    <canvas id="products-canvas" aria-hidden="true"></canvas>
     <div class="section-header reveal">
       <h2 class="section-title">The Collection</h2>
       <span class="section-count" id="product-count">— 0 pieces</span>
@@ -70,7 +75,7 @@
   <section id="about">
     <div class="about-left reveal">
       <p class="about-label">Our Story</p>
-      <h2 class="about-title">Quality Over Everything</h2>
+      <h2 class="about-title glow">Quality Over Everything</h2>
       <p class="about-text">CeCe is a premium Nepali clothing brand built on one principle — quality over everything. Every piece is designed with intention, crafted with care, and made to last. No shortcuts. No compromise.</p>
       <p class="about-text">To order, visit us on Instagram or Facebook. DM us your size and we'll take care of the rest.</p>
     </div>
@@ -87,8 +92,8 @@
     <div class="footer-brand" id="admin-trigger">CeCe</div>
     <!-- Social Links -->
       <div class="footer-links">
-        <a href="https://www.facebook.com/profile.php?id=61582251825771" class="social-link">Facebook</a>
-        <a href="https://www.instagram.com/cece.craftofficial/" class="social-link">Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=61582251825771" class="social-link"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="https://www.instagram.com/cece.craftofficial/" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
       </div>
     <p class="footer-tagline">Quality over everything.</p>
   </footer>

@@ -29,11 +29,82 @@ html {
 }
 
 body {
-  background: var(--black);
+  background: linear-gradient(135deg, var(--black) 0%, #0a0a0a 50%, var(--black) 100%);
   color: var(--white);
   font-family: var(--font-body);
   overflow-x: hidden;
   cursor: crosshair;
+  position: relative;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(232,64,12,0.02) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ── FLOATING ANIMATION ── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ── GLOW EFFECT ── */
+.glow {
+  text-shadow: 0 0 20px currentColor;
+}
+
+.glow:hover {
+  text-shadow: 0 0 30px currentColor, 0 0 40px currentColor;
+}
+
+/* ── MAGNETIC EFFECT ── */
+.magnetic {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.magnetic:hover {
+  transform: scale(1.02) translateZ(10px);
+}
+
+/* ── SUBTLE PARTICLES ── */
+@keyframes particleFloat {
+  0%, 100% { transform: translateY(0px) translateX(0px) scale(1); opacity: 0.3; }
+  25% { transform: translateY(-20px) translateX(10px) scale(1.1); opacity: 0.6; }
+  50% { transform: translateY(-10px) translateX(-5px) scale(0.9); opacity: 0.4; }
+  75% { transform: translateY(-30px) translateX(15px) scale(1.2); opacity: 0.7; }
+}
+
+.particles::before,
+.particles::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: particleFloat 8s ease-in-out infinite;
+}
+
+.particles::before {
+  top: 20%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+.particles::after {
+  top: 60%;
+  right: 20%;
+  animation-delay: 4s;
+  background: var(--accent2);
 }
 
 /* ── NOISE TEXTURE OVERLAY ── */

@@ -14,7 +14,7 @@ const CeceProducts = (() => {
   };
 
   // ── BUILD SINGLE CARD HTML ──
-  function buildCard(product, socials) {
+  function buildCard(product, socials, index = 0) {
     const status   = STATUS_MAP[product.status] || STATUS_MAP.in;
     const disabled = product.status === 'out' ? 'disabled' : '';
 
@@ -27,18 +27,21 @@ const CeceProducts = (() => {
       .join('');
 
     return `
-      <div class="product-card reveal">
+      <div class="product-card reveal" style="animation-delay: ${index * 0.1}s">
+        <div class="shine"></div>
         ${imageHtml}
         <span class="product-status ${status.cls}">${status.label}</span>
         <h3 class="product-name">${product.name}</h3>
         <p class="product-price">NPR ${Number(product.price).toLocaleString()}</p>
         <div class="product-sizes">${sizesHtml}</div>
         <div class="product-actions">
-          <a href="${socials.ig}" target="_blank" rel="noopener" class="btn-order ${disabled}">
-            Order via Instagram
+          <a href="${socials.ig}" target="_blank" rel="noopener" class="btn-order ig ${disabled}">
+            <i class="fab fa-instagram"></i>
+            <span>Order via Instagram</span>
           </a>
           <a href="${socials.fb}" target="_blank" rel="noopener" class="btn-order fb ${disabled}">
-            Order via Facebook
+            <i class="fab fa-facebook"></i>
+            <span>Order via Facebook</span>
           </a>
         </div>
       </div>
@@ -58,7 +61,7 @@ const CeceProducts = (() => {
     count.textContent = `— ${products.length} pieces`;
 
     grid.innerHTML = products
-      .map(p => buildCard(p, socials))
+      .map((p, index) => buildCard(p, socials, index))
       .join('');
 
     // Re-observe scroll reveal after render
