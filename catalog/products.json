@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "name": "CeCe Signature Polo",
+      "name": "CeCe Signature Polo T-shirt",
       "price": 1800,
       "status": "in",
       "sizes": ["XL"],
@@ -28,7 +28,7 @@
     {
       "id": 4,
       "name": "CeCe Midnight Tee",
-      "price": "-",
+      "price": 2500,
       "status": "in",
       "sizes": ["M", "L", "XL"],
       "img": "./Images/niceBlackTee.webp"
