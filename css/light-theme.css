@@ -41,7 +41,7 @@ html[data-theme='light'] #navbar {
   background: rgba(255, 255, 255, 0.94);
   border-bottom: 1px solid var(--lt-line);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(8px);
 }
 
 html[data-theme='light'] .nav-logo,

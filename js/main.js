@@ -42,9 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
   const saveDataEnabled = Boolean(connection && connection.saveData);
   const slowNetwork = Boolean(connection && /2g|3g/.test(connection.effectiveType || ''));
-  const lowPowerDevice = (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 4)
-    || (navigator.deviceMemory && navigator.deviceMemory <= 4);
-  const lowBandwidthMode = saveDataEnabled || slowNetwork || lowPowerDevice || window.innerWidth < 768;
+  const compactScreen = window.innerWidth < 768;
+  const lowPowerDevice = (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2)
+    || (navigator.deviceMemory && navigator.deviceMemory <= 2);
+  const lowBandwidthMode = saveDataEnabled || slowNetwork || lowPowerDevice;
 
   document.documentElement.classList.toggle('performance-mode', lowBandwidthMode || prefersReducedMotion);
 
@@ -75,20 +76,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (!prefersReducedMotion && !lowBandwidthMode) {
-    const burstCount = 3;
-    const spawnInterval = 2200;
+    const burstCount = compactScreen ? 2 : 3;
+    const spawnInterval = compactScreen ? 2800 : 2200;
     let burstRuns = 0;
     const particleTimer = setInterval(() => {
       addHeroParticles(burstCount);
       burstRuns += 1;
       if (burstRuns >= 6) clearInterval(particleTimer);
     }, spawnInterval);
-    addHeroParticles(8);
+    addHeroParticles(compactScreen ? 5 : 8);
   }
 
   // 6. Hero interactivity - Mouse position tracking
   const hero = document.getElementById('hero');
-  if (hero && !lowBandwidthMode && !prefersReducedMotion) {
+  if (hero && !lowBandwidthMode && !prefersReducedMotion && !compactScreen) {
     let rafId = 0;
     let pointerX = 50;
     let pointerY = 50;
