@@ -411,6 +411,35 @@ html[data-theme='light'] .theme-toggle {
   font-size: 0.62rem;
 }
 
+.collection-ig-cta {
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  border: 1px solid rgba(245, 240, 232, 0.3);
+  background: linear-gradient(135deg, rgba(232, 64, 12, 0.2), rgba(240, 180, 41, 0.16));
+  padding: 0.72rem 1rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+  letter-spacing: 0.1em;
+  font-size: 0.58rem;
+  color: rgba(245, 240, 232, 0.96);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.collection-ig-cta:hover {
+  transform: translateY(-2px);
+  border-color: rgba(245, 240, 232, 0.45);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.24);
+  background: linear-gradient(135deg, rgba(240, 148, 51, 0.34), rgba(204, 35, 102, 0.24));
+}
+
+.collection-ig-cta i {
+  font-size: 0.9rem;
+}
+
 .recently-viewed {
   padding: 1.2rem 3rem 2rem;
 }
@@ -449,27 +478,6 @@ html[data-theme='light'] .theme-toggle {
   margin-top: 0.25rem;
   font-size: 0.66rem;
   color: rgba(232, 64, 12, 0.95);
-}
-
-.sticky-order-cta {
-  position: fixed;
-  left: 1rem;
-  right: 1rem;
-  bottom: 0.8rem;
-  z-index: 90;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
-  min-height: 48px;
-  border-radius: 999px;
-  color: #fff;
-  font-family: var(--font-mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  background: linear-gradient(135deg, #d93416 0%, #f0a429 100%);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
 }
 
 .quick-view-modal {
@@ -535,10 +543,6 @@ html[data-theme='light'] .theme-toggle {
 }
 
 @media (max-width: 768px) {
-  .sticky-order-cta {
-    display: inline-flex;
-  }
-
   .recently-viewed {
     padding: 1.2rem 1rem 5rem;
   }
@@ -607,6 +611,12 @@ html[data-theme='light'] .theme-toggle {
   color: rgba(17,17,17,0.92);
 }
 
+html[data-theme='light'] .collection-ig-cta {
+  color: rgba(17,17,17,0.92);
+  border-color: rgba(17,17,17,0.16);
+  background: linear-gradient(135deg, rgba(232, 64, 12, 0.08), rgba(240, 180, 41, 0.1));
+}
+
 html[data-theme='light'] .recent-card {
   background: rgba(255,255,255,0.82);
   box-shadow: 0 8px 18px rgba(0,0,0,0.08);
@@ -629,8 +639,4 @@ html[data-theme='light'] .quick-view-content {
 
 html[data-theme='light'] .quick-view-close {
   color: #121212;
-}
-
-html[data-theme='light'] .sticky-order-cta {
-  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
 }

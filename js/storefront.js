@@ -245,22 +245,6 @@ const CeceStorefront = (() => {
     }
   }
 
-  function initStickyCta() {
-    const sticky = document.getElementById('sticky-order-cta');
-    if (!sticky) return;
-
-    sticky.href = CeceData.getInquiryLink();
-    sticky.target = '_blank';
-    sticky.rel = 'noopener';
-
-    if (sticky.dataset.bound !== '1') {
-      sticky.addEventListener('click', async () => {
-        await prepareInstagramRedirect(encodeURIComponent(CeceData.buildInquiryMessage()), 'Message copied. Paste it into Instagram chat if needed.');
-      });
-      sticky.dataset.bound = '1';
-    }
-  }
-
   function initFooterMeta() {
     const socials = CeceData.getSocials();
     const settings = CeceData.getSettings();
@@ -268,6 +252,7 @@ const CeceStorefront = (() => {
     const ig = document.getElementById('footer-ig');
     const fb = document.getElementById('footer-fb');
     const heroOrder = document.getElementById('hero-order-btn');
+    const moreProductsBtn = document.getElementById('more-products-ig-btn');
     const contact = document.getElementById('footer-contact');
 
     if (ig) ig.href = socials.ig;
@@ -283,6 +268,19 @@ const CeceStorefront = (() => {
         heroOrder.dataset.bound = '1';
       }
     }
+
+    if (moreProductsBtn) {
+      moreProductsBtn.href = CeceData.getInquiryLink();
+      moreProductsBtn.dataset.orderMessage = encodeURIComponent(CeceData.buildInquiryMessage());
+
+      if (moreProductsBtn.dataset.bound !== '1') {
+        moreProductsBtn.addEventListener('click', async () => {
+          await prepareInstagramRedirect(moreProductsBtn.dataset.orderMessage, 'Message copied. Paste it into Instagram chat if needed.');
+        });
+        moreProductsBtn.dataset.bound = '1';
+      }
+    }
+
     if (contact) contact.textContent = `Contact: ${settings.contactPhone}`;
   }
 
@@ -344,7 +342,6 @@ const CeceStorefront = (() => {
   function init() {
     initThemeToggle();
     initQuickViewModal();
-    initStickyCta();
     initFooterMeta();
     initAnalytics();
     initPerformanceMonitoring();
