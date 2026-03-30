@@ -2102,7 +2102,28 @@ footer::before {
 @media (max-width: 768px) {
   #navbar       { padding: 1rem 1.5rem; }
   #hero         { padding: 2rem 1.5rem; }
-  .hero-float-cta { left: 50%; top: 50%; min-height: 40px; padding: 0.5rem 0.9rem; font-size: 0.56rem; letter-spacing: 0.09em; }
+  .hero-float-cta {
+    left: 50%;
+    top: clamp(35%, 38vh, 43%);
+    bottom: auto;
+    transform: translateX(-50%);
+    min-height: 40px;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.56rem;
+    letter-spacing: 0.09em;
+    animation: none;
+  }
+  .hero-float-cta:hover {
+    transform: translateX(-50%) translateY(-2px);
+  }
+  .hero-float-cta::before {
+    animation: none;
+    opacity: 0.45;
+  }
+  .hero-float-cta::after {
+    animation: none;
+    opacity: 0.55;
+  }
   .hero-eyebrow { font-size: 0.55rem; letter-spacing: 0.2em; margin-bottom: 0.7rem; }
   .hero-est-bg { right: 1.4rem; bottom: clamp(11rem, 20vh, 14rem); font-size: clamp(1.2rem, 5.6vw, 2.1rem); }
   .hero-title   { font-size: clamp(5rem, 22vw, 8rem); }
@@ -2156,7 +2177,8 @@ footer::before {
 
 @media (max-width: 480px) {
   .hero-float-cta {
-    top: 54%;
+    top: clamp(38%, 41vh, 46%);
+    bottom: auto;
     min-height: 38px;
     padding: 0.48rem 0.8rem;
     font-size: 0.53rem;
