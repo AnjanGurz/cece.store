@@ -4,10 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CeCe — Premium Nepali Clothing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" as="image" href="Images/niceBlackTee.webp" fetchpriority="high">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/light-theme.css">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -17,7 +22,7 @@
 
   <!-- NAVIGATION -->
   <nav id="navbar">
-    <a href="#" class="nav-logo">CeCe</a>
+    <a href="#" class="nav-logo" id="nav-admin-trigger">CeCe</a>
     <div class="nav-links">
       <a href="#products">Shop</a>
       <a href="#about">About</a>
@@ -34,6 +39,7 @@
     <span class="hero-est-bg" aria-hidden="true">EST 2026</span>
     <p class="hero-sub">Quality over everything, worn to define.</p>
     <p class="hero-sub hero-sub-nepali">गुणस्तर कपडा, प्रेम र हृदयको साथ।</p>
+    <a href="https://www.instagram.com/cece.craftofficial/" id="hero-order-btn" class="hero-order-btn" target="_blank" rel="noopener">Order via Instagram</a>
     <a href="#products" id="floating-collection-btn" class="hero-float-cta" aria-label="Go to collections">COLLECTIONS <span class="cta-arrows" aria-hidden="true"><i class="fa-solid fa-angles-down"></i></span></a>
     <div class="hero-scroll">Scroll to explore</div>
   </section>
@@ -77,9 +83,9 @@
       <p class="collection-helper">Browse by availability</p>
       <div class="collection-filters" role="tablist" aria-label="Filter products">
         <button class="filter-chip is-active" type="button" data-filter="all" aria-pressed="true">All</button>
-        <button class="filter-chip" type="button" data-filter="in" aria-pressed="false">In Stock</button>
-        <button class="filter-chip" type="button" data-filter="limited" aria-pressed="false">Limited</button>
-        <button class="filter-chip" type="button" data-filter="out" aria-pressed="false">Sold Out</button>
+        <button class="filter-chip" type="button" data-filter="hoodies" aria-pressed="false">Hoodies</button>
+        <button class="filter-chip" type="button" data-filter="tshirts" aria-pressed="false">T-Shirts</button>
+        <button class="filter-chip" type="button" data-filter="new" aria-pressed="false">New</button>
       </div>
     </div>
     <div class="products-grid" id="products-grid">
@@ -93,6 +99,16 @@
       <h3>Up Next</h3>
       <p>New drop soon. Follow Us On Instagram and Facebook for updates.</p>
     </div>
+  </section>
+
+  <section id="recently-viewed" class="recently-viewed reveal" hidden>
+    <div class="section-header">
+      <div>
+        <h2 class="section-title">Recently Viewed</h2>
+        <p class="collection-helper">Jump back to pieces you checked.</p>
+      </div>
+    </div>
+    <div class="recently-viewed-list" id="recently-viewed-list"></div>
   </section>
 
   <!-- ABOUT -->
@@ -131,18 +147,47 @@
     <div class="footer-brand" id="admin-trigger">CeCe</div>
     <!-- Social Links -->
       <div class="footer-links">
-        <a href="https://www.facebook.com/profile.php?id=61582251825771" class="social-link"><i class="fab fa-facebook"></i> Facebook</a>
-        <a href="https://www.instagram.com/cece.craftofficial/" class="social-link"><i class="fab fa-instagram"></i> Instagram</a>
+        <a href="https://www.facebook.com/profile.php?id=61582251825771" id="footer-fb" class="social-link" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="https://www.instagram.com/cece.craftofficial/" id="footer-ig" class="social-link" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> Instagram</a>
       </div>
+    <!-- <p class="footer-contact" id="footer-contact">Contact: +977 98XXXXXXXX</p> -->
     <p class="footer-tagline">© 2026 CeCe. All rights reserved.</p>
   </footer>
+
+  <a href="https://www.instagram.com/cece.craftofficial/" id="sticky-order-cta" class="sticky-order-cta" aria-label="Order on Instagram">
+    <i class="fab fa-instagram" aria-hidden="true"></i>
+    <span>Order via Instagram</span>
+  </a>
+
+  <div class="quick-view-modal" id="quick-view-modal" aria-hidden="true">
+    <div class="quick-view-backdrop"></div>
+    <div class="quick-view-content" role="dialog" aria-modal="true" aria-label="Quick view product">
+      <button type="button" id="quick-view-close" class="quick-view-close" aria-label="Close quick view">×</button>
+      <img id="quick-view-image" src="" alt="" decoding="async">
+      <h3 id="quick-view-name"></h3>
+      <p id="quick-view-price"></p>
+      <p id="quick-view-status"></p>
+      <a id="quick-view-order" href="#" target="_blank" rel="noopener" class="btn-order ig">Order on Instagram</a>
+    </div>
+  </div>
 
   <!-- Admin files -->
   <div id="admin-mount"></div>
 
   <!-- SCRIPTS — order matters -->
+  <!--
+    ╔══════════════════════════════════════════════════════════╗
+    ║  CLOUD API CONFIG                                        ║
+    ║  Set CECE_API_URL to your Render service URL to enable   ║
+    ║  live product sync. Leave empty for local-only mode.     ║
+    ╚══════════════════════════════════════════════════════════╝
+    To deploy: replace '' with your Render URL, e.g.:
+    window.CECE_API_URL = 'https://cece-store-api.onrender.com';
+  -->
+  <script>window.CECE_API_URL = '';</script>
   <script src="js/data.js"></script>
   <script src="js/products.js"></script>
+  <script src="js/storefront.js"></script>
   <script src="js/animations.js"></script>
   <script src="admin/admin.js"></script>
   <script src="js/main.js"></script>

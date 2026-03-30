@@ -1,0 +1,57 @@
+{
+  "catalogVersion": "2026-03-29-v1",
+  "products": [
+    {
+      "id": 1,
+      "name": "CeCe Casual summer slim fit Jacket",
+      "price": 2999,
+      "status": "in",
+      "sizes": ["L"],
+      "img": "https://raw.githubusercontent.com/YOUR_GITHUB/cece.store/main/Images/black_jacket.jpeg",
+      "category": "hoodies",
+      "isNew": true,
+      "igLink": "https://www.instagram.com/cece.craftofficial/",
+      "description": "Premium lightweight jacket for summer.",
+      "views": 0
+    },
+    {
+      "id": 2,
+      "name": "CeCe Signature Polo T-shirt",
+      "price": 1800,
+      "status": "in",
+      "sizes": ["XL"],
+      "img": "https://raw.githubusercontent.com/YOUR_GITHUB/cece.store/main/Images/Polo_black.jpeg",
+      "category": "tshirts",
+      "isNew": false,
+      "igLink": "https://www.instagram.com/cece.craftofficial/",
+      "description": "Classic signature polo in premium cotton.",
+      "views": 0
+    },
+    {
+      "id": 3,
+      "name": "CeCe Roda",
+      "price": 1450,
+      "status": "in",
+      "sizes": ["L", "XL", "XXL"],
+      "img": "https://raw.githubusercontent.com/YOUR_GITHUB/cece.store/main/Images/whiteTee.webp",
+      "category": "tshirts",
+      "isNew": false,
+      "igLink": "https://www.instagram.com/cece.craftofficial/",
+      "description": "Everyday essential tee.",
+      "views": 0
+    },
+    {
+      "id": 4,
+      "name": "CeCe Midnight Tee",
+      "price": 2500,
+      "status": "in",
+      "sizes": ["M", "L", "XL"],
+      "img": "https://raw.githubusercontent.com/YOUR_GITHUB/cece.store/main/Images/niceBlackTee.webp",
+      "category": "tshirts",
+      "isNew": true,
+      "igLink": "https://www.instagram.com/cece.craftofficial/",
+      "description": "Signature midnight drop — bold and minimal.",
+      "views": 0
+    }
+  ]
+}

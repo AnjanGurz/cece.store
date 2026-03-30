@@ -17,18 +17,30 @@ const CeceProducts = (() => {
 
   const FILTER_MATCHERS = {
     all: () => true,
-    in: (product) => product.status === 'in',
-    limited: (product) => product.status === 'limited',
-    out: (product) => product.status === 'out',
+    hoodies: (product) => product.category === 'hoodies',
+    tshirts: (product) => product.category === 'tshirts',
+    new: (product) => Boolean(product.isNew),
   };
 
   // ── BUILD SINGLE CARD HTML ──
-  function buildCard(product, socials, index = 0) {
+  function buildCard(product, index = 0) {
     const status   = STATUS_MAP[product.status] || STATUS_MAP.in;
-    const disabled = product.status === 'out' ? 'disabled' : '';
+    const isOut = product.status === 'out';
+    const disabled = isOut ? 'disabled' : '';
+    const orderHref = isOut ? '#' : CeceData.getOrderLink(product);
+    const orderMessage = CeceData.buildOrderMessage(product);
+    const newDropBadge = product.isNew
+      ? '<span class="product-drop-badge">New Drop</span>'
+      : '';
 
     const imageHtml = product.img
-      ? `<div class="product-img-placeholder"><img src="${product.img}" alt="${product.name}" loading="lazy"></div>`
+      ? `
+        <div class="product-img-placeholder">
+          ${newDropBadge}
+          <img src="${product.img}" alt="${product.name}" loading="lazy" decoding="async" fetchpriority="low">
+          <button type="button" class="product-quick-view" data-quick-view="${product.id}" aria-label="Quick view ${product.name}">Quick View</button>
+        </div>
+      `
       : `<div class="product-img-placeholder">CECE</div>`;
 
     const sizesHtml = product.sizes
@@ -36,7 +48,7 @@ const CeceProducts = (() => {
       .join('');
 
     return `
-      <div class="product-card reveal" style="animation-delay: ${index * 0.1}s">
+      <article class="product-card reveal" data-product-id="${product.id}" style="animation-delay: ${index * 0.08}s">
         ${imageHtml}
         <div class="product-info">
           <span class="product-status ${status.cls}">${status.label}</span>
@@ -44,17 +56,25 @@ const CeceProducts = (() => {
           <p class="product-price">NPR ${Number(product.price).toLocaleString()}</p>
           <div class="product-sizes">${sizesHtml}</div>
           <div class="product-actions">
-            <a href="${socials.ig}" target="_blank" rel="noopener" class="btn-order ig ${disabled}">
+            <a
+              href="${orderHref}"
+              target="_blank"
+              rel="noopener"
+              class="btn-order ig ${disabled}"
+              data-order-product="${product.id}"
+              data-order-message="${encodeURIComponent(orderMessage)}"
+              aria-disabled="${isOut ? 'true' : 'false'}"
+            >
               <i class="fab fa-instagram"></i>
-              <span>Instagram</span>
+              <span>${isOut ? 'Sold Out' : 'Order on Instagram'}</span>
             </a>
-            <a href="${socials.fb}" target="_blank" rel="noopener" class="btn-order fb ${disabled}">
+            <a href="${CeceData.getSocials().fb}" target="_blank" rel="noopener" class="btn-order fb ${disabled}" aria-disabled="${isOut ? 'true' : 'false'}">
               <i class="fab fa-facebook"></i>
               <span>Facebook</span>
             </a>
           </div>
         </div>
-      </div>
+      </article>
     `;
   }
 
@@ -85,7 +105,6 @@ const CeceProducts = (() => {
   // ── RENDER ALL PRODUCTS ──
   function render() {
     const products = CeceData.getProducts();
-    const socials  = CeceData.getSocials();
     const matchFilter = FILTER_MATCHERS[activeFilter] || FILTER_MATCHERS.all;
     const filteredProducts = products.filter(matchFilter);
 
@@ -115,7 +134,7 @@ const CeceProducts = (() => {
     }
 
     grid.innerHTML = filteredProducts.length
-      ? filteredProducts.map((p, index) => buildCard(p, socials, index)).join('')
+      ? filteredProducts.map((p, index) => buildCard(p, index)).join('')
       : '<p class="products-empty">No pieces in this filter</p>';
 
     if (swipeHint) {
@@ -124,9 +143,23 @@ const CeceProducts = (() => {
 
     // Re-observe scroll reveal after render
     CeceAnimations.observeReveal();
+
+    if (typeof CeceStorefront !== 'undefined' && CeceStorefront && typeof CeceStorefront.onProductsRendered === 'function') {
+      CeceStorefront.onProductsRendered(filteredProducts);
+    } else if (window.CeceStorefront && typeof window.CeceStorefront.onProductsRendered === 'function') {
+      window.CeceStorefront.onProductsRendered(filteredProducts);
+    }
   }
 
   // ── PUBLIC ──
-  return { render };
+  function getProductById(id) {
+    return CeceData.getProductById(Number(id));
+  }
+
+  function getActiveFilter() {
+    return activeFilter;
+  }
+
+  return { render, getProductById, getActiveFilter };
 
 })();

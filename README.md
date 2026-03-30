@@ -15,3 +15,29 @@ Products can now be managed in a separate JSON file:
 3. Reload the website
 
 The app will sync local storage from this catalog when the version changes.
+
+## Product Schema
+
+Each product now supports category and new-drop controls:
+
+- `category`: `hoodies` or `tshirts`
+- `isNew`: `true` or `false`
+
+Example fields:
+
+- `name`, `price`, `status`, `sizes`, `img`, `category`, `isNew`
+
+## Centralized Settings
+
+Brand, order handle, contact, theme mode, analytics, and social links are managed in [js/data.js](js/data.js).
+
+Key object:
+
+- `DEFAULT_SETTINGS`
+
+## Analytics
+
+In [js/data.js](js/data.js), set:
+
+- `analytics.provider` to `ga4` or `plausible`
+- `gaMeasurementId` for GA4, or `plausibleDomain` for Plausible

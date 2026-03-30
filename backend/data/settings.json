@@ -1,0 +1,21 @@
+{
+  "brandName": "CeCe",
+  "tagline": "Quality over everything.",
+  "heroText": "CE<small>CE</small>",
+  "heroSubtitle": "Quality over everything, worn to define.",
+  "ctaText": "Order via Instagram",
+  "announcement": "",
+  "contactPhone": "+977 98XXXXXXXX",
+  "orderHandle": "cece.craftofficial",
+  "orderMessageTemplate": "Namaste {brand_name}, I want to order: {product_name}\nPrice: NPR {price}\nSize: {sizes}\nInstagram: @cece.craftofficial",
+  "inquiryMessageTemplate": "Namaste {brand_name}, I found you through your website.\nI want to know more about your latest collection.\nPlease share available pieces and sizes.",
+  "socials": {
+    "ig": "https://www.instagram.com/cece.craftofficial/",
+    "fb": "https://www.facebook.com/profile.php?id=61582251825771",
+    "whatsapp": ""
+  },
+  "theme": {
+    "accentColor": "#efad35",
+    "accentAlt": "#df4b23"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "catalogVersion": "2026-03-28-v4",
+  "catalogVersion": "2026-03-29-v1",
   "products": [
     {
       "id": 1,
@@ -7,7 +7,9 @@
       "price": 2999,
       "status": "in",
       "sizes": ["L"],
-      "img": "./Images/black_jacket.jpeg"
+      "img": "./Images/black_jacket.jpeg",
+      "category": "hoodies",
+      "isNew": true
     },
     {
       "id": 2,
@@ -15,7 +17,9 @@
       "price": 1800,
       "status": "in",
       "sizes": ["XL"],
-      "img": "./Images/Polo_black.jpeg"
+      "img": "./Images/Polo_black.jpeg",
+      "category": "tshirts",
+      "isNew": false
     },
     {
       "id": 3,
@@ -23,7 +27,9 @@
       "price": 1450,
       "status": "in",
       "sizes": ["L", "XL", "XXL"],
-      "img": "./Images/whiteTee.webp"
+      "img": "./Images/whiteTee.webp",
+      "category": "tshirts",
+      "isNew": false
     },
     {
       "id": 4,
@@ -31,7 +37,9 @@
       "price": 2500,
       "status": "in",
       "sizes": ["M", "L", "XL"],
-      "img": "./Images/niceBlackTee.webp"
+      "img": "./Images/niceBlackTee.webp",
+      "category": "tshirts",
+      "isNew": true
     }
   ]
 }

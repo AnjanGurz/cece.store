@@ -1,0 +1,4 @@
+# These files should not be committed to version control
+.env
+node_modules/
+*.log
